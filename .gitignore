@@ -1,0 +1,22 @@
+# 忽略 Python 編譯快取
+__pycache__/
+*.py[cod]
+
+# 忽略環境設定檔與機密檔案
+.env
+*.env
+config.ini
+
+# 忽略 ChromaDB 資料
+chroma_db/
+
+# 忽略 VS Code 設定
+.vscode/
+
+# 忽略 macOS 的檔案
+.DS_Store
+
+news/
+price/
+offload/
+z_deprecated/

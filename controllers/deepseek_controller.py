@@ -1,8 +1,10 @@
 from flask import Blueprint, request, jsonify
 from models.deepseek_model import query_rag
+from flask_cors import CORS
 
 # 建立 Flask Blueprint
 deepseek_bp = Blueprint("deepseek", __name__)
+CORS(deepseek_bp, resources={r"/*": {"origins": "http://localhost:5173"}})
 
 @deepseek_bp.route("/generate", methods=["POST"])
 def generate_response():

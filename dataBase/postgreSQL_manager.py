@@ -9,6 +9,23 @@ from dataBase.postgreSQL import db
 def create_tables():
     commands = [
         """
+        CREATE EXTENSION IF NOT EXISTS "pgcrypto";
+        
+        CREATE TABLE IF NOT EXISTS chat_sessions (
+            id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+            created_at TIMESTAMP DEFAULT NOW(),
+            title TEXT -- optional, 可以給每次對話取名字
+        );
+
+        -- chat_messages
+        CREATE TABLE IF NOT EXISTS chat_messages (
+            id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+            session_id UUID REFERENCES chat_sessions(id) ON DELETE CASCADE,
+            sender TEXT CHECK (sender IN ('user', 'bot')),
+            message TEXT NOT NULL,
+            created_at TIMESTAMP DEFAULT NOW()
+        );
+
         CREATE TABLE IF NOT EXISTS news (
             id TEXT PRIMARY KEY,
             title TEXT NOT NULL,

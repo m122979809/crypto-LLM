@@ -274,4 +274,5 @@ def insert_crypto_prices():
 
 if __name__ == "__main__":
     create_tables()
-    # insert_crypto_prices()
+    insert_news()
+    insert_crypto_prices()

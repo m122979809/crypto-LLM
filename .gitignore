@@ -13,10 +13,8 @@ chroma_db/
 # 忽略 VS Code 設定
 .vscode/
 
-# 忽略 macOS 的檔案
 .DS_Store
 
-news/
-price/
 offload/
 z_deprecated/
+venv/

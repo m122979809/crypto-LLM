@@ -43,16 +43,16 @@ def fetch_and_save_news_to_csv():
                 published_time = taiwan_time.strftime('%Y-%m-%d %H:%M:%S')
                 title = article["TITLE"]
                 body = article["BODY"]
-                url = article["URL"]  # 新增文章 URL
+                url = article["URL"]
 
-                # 🔍 取得關鍵字（有些文章可能沒有 KEYWORDS）
+                # 取得關鍵字（有些文章可能沒有 KEYWORDS）
                 keywords = article.get("KEYWORDS", "N/A")
                 if isinstance(keywords, str):
                     keywords = keywords.replace(",", "|")  # 確保格式統一
                 else:
                     keywords = "N/A"
 
-                # ✨ 存入 CSV
+                # 存入 CSV
                 writer.writerow([timestamp, published_time, title, body, url, keywords])
         
         insert_news()
@@ -60,9 +60,9 @@ def fetch_and_save_news_to_csv():
         if news_data:
             process_and_store_news(news_data)
 
-        print(f"✅ Data has been saved to {filename}")
+        print(f"Data has been saved to {filename}")
     else:
-        print(f"❌ Failed to retrieve data. HTTP Status code: {response.status_code}")
+        print(f"Failed to retrieve data. HTTP Status code: {response.status_code}")
 
 if __name__ == '__main__':
     fetch_and_save_news_to_csv()

@@ -130,5 +130,5 @@ def rebuild_chroma_from_postgres():
 if __name__ == "__main__":
     # create_news("Bitcoin Price Surge", "Bitcoin price has increased by 5% today.", time.gmtime(1709400000))
     # search_by_user_input()
-    clear_chroma_db()
+    # clear_chroma_db()
     rebuild_chroma_from_postgres()    
